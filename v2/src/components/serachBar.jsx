@@ -1,40 +1,38 @@
 import axios from "axios"
 import { useEffect } from "react"
 import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { gettingRepos, errorRepos, successRepos } from "../store/reposSlice"
 
-const searchBar = () => {
+const SearchBar = () => {
     const [ username, setUsername ] = useState('')
-    const [ repos, setRepos ] = useState([])
-    const [ error, setError ] = useState(null)
-    const [ loading, setLoading ] = useState(false)
-    const handleChange = (event) => {setUsername(event.target.value)}
+    const dispatch = useDispatch()
 
+    const handleChange = (event) => {setUsername(event.target.value)}
+    
     useEffect(() => {
         if( username.trim() === "" ) {
-            setRepos([])
-            setError(null)
-            setLoading(false)
+            dispatch(successRepos([]))
             return
         }
 
         const timer = setTimeout(() => {
-            setLoading(true)
+            dispatch(gettingRepos())
             axios
                 .get(`https://api.github.com/users/${username}/repos`)
                 .then(respone => {
-                    setRepos(respone.data)
-                    setLoading(false)
+                    dispatch(successRepos(respone.data))
                 })
                 .catch(error => {
                     console.log(error)
-                    setError('Пользователь не найден')
-                    setLoading(false)
+                    dispatch(errorRepos('Пользователь не найден'))
                 })
         }, 1000)
 
         return () => clearTimeout(timer)
 
-    }, [username])
+    }, [username, dispatch])  
+    
     return(
         <>
             <input
@@ -42,13 +40,10 @@ const searchBar = () => {
                 value={username}
                 onChange={handleChange}
                 placeholder="Введите никнейм пользователя"
-            />
-            
-            {error && <p> ошибка:{error}</p>}
-            {loading && (<p>Идет поиск... </p>)}
+            />            
         </>
         
     )
 }
 
-export default searchBar
+export default SearchBar
