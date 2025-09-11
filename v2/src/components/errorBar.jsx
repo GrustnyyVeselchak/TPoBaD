@@ -4,7 +4,7 @@ const ErrorBar = () => {
     const { error } = useSelector(state => state.repos)
     return(
         <>
-            {error && <p> ошибка:{error}</p>}
+            {error && <p className='text-red-500'> ошибка:{error}</p>}
         </>
     )
 }

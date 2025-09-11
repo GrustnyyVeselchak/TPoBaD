@@ -39,7 +39,8 @@ const SearchBar = () => {
                 type="text"
                 value={username}
                 onChange={handleChange}
-                placeholder="Введите никнейм пользователя"
+                placeholder="Введите пользователя"
+                className="border-b-4 border-indigo-500"
             />            
         </>
         
