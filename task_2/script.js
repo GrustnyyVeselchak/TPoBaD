@@ -9,6 +9,10 @@ const valitationData = (str) => {
         throw new Error("Не ввели данные")
     }
 
+    if (str[0] !== "(" && str[str.length-1] !== ")") {
+        throw new Error("В начале и конце должны быть скобки. Например ( 1 2 3 )")
+    }
+
     let isValid = /^[0-9()]+$/.test(str) //возвращает ture если строка состоит из чисул и знаков скобок
 
     if (!isValid) {
