@@ -17,3 +17,40 @@
 - Vite
 - React
 - Type Script
+
+## Установка и запуск:
+
+#### Установите Bun (если ещё не установлен):
+
+```bash
+# macOS и Linux
+curl -fsSL https://bun.sh/install | bash
+
+# Windows
+powershell -c "irm bun.sh/install.ps1 | iex"
+```
+
+#### Установка зависимостей
+
+```bash
+bun install
+```
+
+#### Запуск в режиме разработки
+
+```bash
+bun dev
+```
+
+Приложение будет доступно по адресу: http://localhost:5173
+
+#### Сборка для production
+
+```bash
+bun run build
+```
+
+#### Просмотр собранной версии
+```bash
+bun run preview
+```
