@@ -54,3 +54,10 @@ bun run build
 ```bash
 bun run preview
 ```
+
+
+### API
+
+https://jsonplaceholder.typicode.com/users
+
+### Если запросы не идут, пробуй через VPN (тут я ревел)
