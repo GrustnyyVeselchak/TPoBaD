@@ -1,17 +1,23 @@
 import './App.css'
+import './index.css'
 import Button from './components/Button'
-import HoodIcon from './components/HoodIcon'
 import Input from './components/Input'
 import Output from './components/Output'
 
 function App() {
   return (
-    <>
-      <img src='/1.png' alt='logo'/>
-      <Input/>
-      <Button/>
-      <Output/>
-    </>
+    <div className='wrapper'>
+      <img 
+        src='/1.png' 
+        alt='logo'
+        className='logo'
+      />
+      <section>
+        <Input/>
+        <Button/>
+        <Output/>
+      </section>
+    </div>
   )
 }
 

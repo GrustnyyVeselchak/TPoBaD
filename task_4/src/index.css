@@ -1,16 +1,36 @@
-/* Общий фон страницы */
 body {
-  background-color: #0d1117; /* тёмный фон */
+  padding: 0px;
+  margin: 0px;
+  background-color: #0d1117;
   color: #fff;
   font-family: 'Inter', sans-serif;
 }
 
-/* Поле ввода URL */
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo {
+  height: auto;
+  width: 30%;
+}
+
+section {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
 .input-box {
-  width: 400px;
-  height: 45px;
+  min-width: 400px;
+  min-height: 45px;
   padding: 0 16px;
-  border-radius: 16px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: linear-gradient(
     180deg,
@@ -18,6 +38,7 @@ body {
     rgba(115, 115, 115, 0.4) 100%
   );
   color: #ffffff;
+  text-align: center;
   outline: none;
   transition: border 0.2s ease;
 }
@@ -26,12 +47,11 @@ body {
   border-color: rgba(255, 255, 255, 1);
 }
 
-/* Кнопка GET */
-.button {
-  height: 45px;
+button {
+  min-height: 45px;
+  min-width: 149px;
   padding: 0 24px;
-  margin-left: 12px;
-  border-radius: 16px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: linear-gradient(
     180deg,
@@ -43,7 +63,7 @@ body {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.button:hover {
+button:hover {
   background: linear-gradient(
     180deg,
     rgba(217, 217, 217, 0.1) 0%,
@@ -52,11 +72,10 @@ body {
   transform: translateY(-1px);
 }
 
-/* Панель вывода */
 .output-box {
+  grid-column: span 2;
   width: 650px;
   height: 700px;
-  margin-top: 24px;
   padding: 20px;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -65,12 +84,11 @@ body {
     rgba(217, 217, 217, 0.0) 0%,
     rgba(115, 115, 115, 0.4) 100%
   );
-  color: #ff6666; /* как у тебя — красноватый текст */
+  color: #ff6666;
   overflow-y: auto;
   white-space: pre-line;
 }
 
-/* Тень для всех элементов */
 .input-box, .button, .output-box {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(201, 108, 108, 0.3);
 }
