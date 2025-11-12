@@ -1,0 +1,76 @@
+/* Общий фон страницы */
+body {
+  background-color: #0d1117; /* тёмный фон */
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Поле ввода URL */
+.input-box {
+  width: 400px;
+  height: 45px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0.0) 0%,
+    rgba(115, 115, 115, 0.4) 100%
+  );
+  color: #ffffff;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.input-box:focus {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Кнопка GET */
+.button {
+  height: 45px;
+  padding: 0 24px;
+  margin-left: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0.0) 0%,
+    rgba(115, 115, 115, 0.4) 100%
+  );
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0.1) 0%,
+    rgba(115, 115, 115, 0.6) 100%
+  );
+  transform: translateY(-1px);
+}
+
+/* Панель вывода */
+.output-box {
+  width: 650px;
+  height: 700px;
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0.0) 0%,
+    rgba(115, 115, 115, 0.4) 100%
+  );
+  color: #ff6666; /* как у тебя — красноватый текст */
+  overflow-y: auto;
+  white-space: pre-line;
+}
+
+/* Тень для всех элементов */
+.input-box, .button, .output-box {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
