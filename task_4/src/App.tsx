@@ -1,8 +1,6 @@
 import './App.css'
 import './index.css'
-import Button from './components/Button'
-import Input from './components/Input'
-import Output from './components/Output'
+import SearchBar from './widgets/SerachBar'
 
 function App() {
   return (
@@ -12,11 +10,7 @@ function App() {
         alt='logo'
         className='logo'
       />
-      <section>
-        <Input/>
-        <Button/>
-        <Output/>
-      </section>
+      <SearchBar/>
     </div>
   )
 }
