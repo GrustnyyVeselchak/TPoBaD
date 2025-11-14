@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import '../index.css'
 import type { ButtonProps } from '../difinition';
+import { cheker } from '../lib/headersCheker';
 
 const Button = ({url, setData}: ButtonProps) => {
     const [loading, setLoading] = useState<boolean>(false)
-    const [error, setError] = useState<string | null>(null)
 
     const fetchData = async() => {
         if (!url) {
@@ -12,22 +12,24 @@ const Button = ({url, setData}: ButtonProps) => {
         }
         
         setLoading(true)
-        setError(null)
         setData(null)
         
         try {
             const res = await fetch(url)
+            
             if (!res.ok) {
                 throw new Error(`Ошибка HTTP: ${res.status}`)
             }
 
-            const data = await res.json()
-            setData(data)
+            const headers = res.headers
+            const result = cheker(headers)
+            setData(result)
+
         } catch (err) {
             if (err instanceof Error) {
-                setError(err.message)
+                setData(err.message)
             } else {
-                setError('Произошла неизвестная ошибка')
+                setData('Произошла неизвестная ошибка')
             }
         } finally {
             setLoading(false)
@@ -37,7 +39,7 @@ const Button = ({url, setData}: ButtonProps) => {
         <button
             onClick={fetchData}
         >
-            {loading ? 'Loading...' : error ? error: 'GET'}
+            {loading ? 'Loading...' : 'GET'}
         </button>
     )
 }
