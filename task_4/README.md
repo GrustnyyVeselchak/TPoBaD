@@ -7,10 +7,6 @@
 
 1) clone rep
 
-```bash
-git clone https://github.com/GrustnyyVeselchak/TPoBaD/tree/main/task_4
-```
-
 2) install dependencies 
 
 ```bash
